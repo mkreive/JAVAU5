@@ -29,3 +29,27 @@ addBtn.addEventListener('click', function () {
     ulList.insertAdjacentHTML('beforeend', html);
     todoInput.value = '';
 });
+
+////////////////////////////////////////////////////////////////////////////
+const addTable = document.querySelector('.btn--table');
+const tableInput = document.querySelector('.input--table');
+const table = document.querySelector('.table');
+
+const generateTableHtml = function (name, surname, age) {
+    return `
+    <div class="row">
+        <div class="col-user">${name}</div>
+        <div class="col-user">${surname}</div>
+        <div class="col-user">${age}</div>
+    </div>`;
+};
+
+addTable.addEventListener('click', function () {
+    const inputArr = tableInput.value.split(',');
+    const tableContent = { name: inputArr[0].trim(), surname: inputArr[1].trim(), age: inputArr[2].trim() };
+    const html = generateTableHtml(tableContent.name, tableContent.surname, tableContent.age);
+    table.insertAdjacentHTML('beforeend', html);
+    tableInput.value = '';
+});
+
+////////////////////////////////////////////////////////////////////////////

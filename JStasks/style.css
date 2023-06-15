@@ -156,3 +156,64 @@ h6 {
 }
 
 /* TASK THREE*/
+.task3 {
+    background-color: #00a36c;
+    font-size: 1rem;
+}
+.table {
+    width: 100%;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.row {
+    display: flex;
+    gap: 0.2rem;
+}
+.col {
+    display: inline-block;
+    flex: 1;
+    background-color: #add8e6;
+    color: #00a36c;
+    text-transform: uppercase;
+    padding: 0.2rem;
+}
+
+.col-user {
+    display: inline-block;
+    flex: 1;
+    background-color: #00a36c;
+    color: #fff;
+    border-left: 0.1rem solid #add8e6;
+    padding: 0.3rem;
+}
+
+.label--table {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.2rem;
+    gap: 0.4rem;
+}
+
+.input--table {
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f0f0f3;
+    color: #6082b6;
+    padding: 0.4rem 1rem;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.btn--table {
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #add8e6;
+    padding: 0.4rem 1rem;
+    color: #00a36c;
+}
