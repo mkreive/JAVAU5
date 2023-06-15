@@ -53,3 +53,13 @@ addTable.addEventListener('click', function () {
 });
 
 ////////////////////////////////////////////////////////////////////////////
+const btnFilter = document.querySelector('.btn--filter');
+const names = document.querySelector('.names');
+const inputFilter = document.querySelector('.input--filter');
+
+btnFilter.addEventListener('click', function () {
+    const userInput = inputFilter.value.trim().toLowerCase();
+    const namesArr = names.innerHTML.split(',');
+    console.log(namesArr);
+    tableInput.value = '';
+});
