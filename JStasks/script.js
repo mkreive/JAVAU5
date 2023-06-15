@@ -1,7 +1,5 @@
 'use strict';
 
-// Sukurkite žaidimą "Atspėk skaičių": Turite sugeneruoti atsitiktinį skaičių nuo 1 iki 100 ir leisti vartotojui atspėti skaičių. Kaskart kai vartotojas spaudžia mygtuką "Patikrinti", Jūsų programa turėtų palyginti atspėtą skaičių su sugeneruotu ir atspausdinti pranešimą Daugiau-Mažiau, ar vartotojas atspėjo skaičių, ar ne.
-
 const guess = document.querySelector('.guess');
 const guessBtn = document.querySelector('.btn--ok');
 const guessInput = document.querySelector('.input--guess');
@@ -14,4 +12,20 @@ guessBtn.addEventListener('click', function () {
     else if (randomNum == userInput) guess.innerHTML = `Congrats! You guessed secret number!`;
     else guess.innerHTML = `Your guess ${userInput} is invalid, try again`;
     console.log(randomNum);
+});
+
+////////////////////////////////////////////////////////////////////////////
+const addBtn = document.querySelector('.btn--add');
+const todoInput = document.querySelector('.input--todo');
+const ulList = document.querySelector('.todo_list');
+
+const generateItemHtml = function (value) {
+    return `
+    <li class="todo_item">${value}</li>`;
+};
+
+addBtn.addEventListener('click', function () {
+    const html = generateItemHtml(todoInput.value);
+    ulList.insertAdjacentHTML('beforeend', html);
+    todoInput.value = '';
 });
