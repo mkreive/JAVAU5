@@ -54,12 +54,35 @@ addTable.addEventListener('click', function () {
 
 ////////////////////////////////////////////////////////////////////////////
 const btnFilter = document.querySelector('.btn--filter');
-const names = document.querySelector('.names');
+const namesList = document.querySelector('.names_list');
+const nameField = document.querySelector('.names');
 const inputFilter = document.querySelector('.input--filter');
 
-btnFilter.addEventListener('click', function () {
-    const userInput = inputFilter.value.trim().toLowerCase();
-    const namesArr = names.innerHTML.split(',');
-    console.log(namesArr);
-    tableInput.value = '';
+const generateListItem = function (name) {
+    return `
+    <p class="names">${name}</p>`;
+};
+
+btnFilter.addEventListener('click', async function () {
+    const namesData = await fetchNamesData('first-names.json');
+    const lookingFor = inputFilter.value;
+    const found = namesData.includes(lookingFor);
+
+    if (found) {
+        const html = generateListItem(lookingFor);
+        namesList.insertAdjacentHTML('beforeend', html);
+    } else {
+        nameField.innerHTML = `${lookingFor} is not in names database`;
+    }
+    inputFilter.value = '';
 });
+
+const fetchNamesData = async function (address) {
+    const response = await fetch(address);
+    const responseData = await response.json();
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch user info');
+    }
+    return responseData;
+};
